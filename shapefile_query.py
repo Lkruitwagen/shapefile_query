@@ -3,6 +3,7 @@ import re
 import shapefile
 import matplotlib.pyplot as plt
 import utm
+import os
 
 
 # keeping sub 'extractnames' here for syntax notes.
@@ -14,8 +15,11 @@ def main():
 
   #open a csv of lat/lons and return shape attributes and distance
 
-  shp_filename = 'C:\Users\Lucas\Anaconda2\SSEE\World_Geological_Storage_Suitability_27012011.shp'
-  csv_filename = 'C:\Users\Lucas\Anaconda2\SSEE\lat_lon.csv'
+  cwd = os.getcwd()
+  shp_f = r'World_Geological_Storage_Suitability_09032011_BIS.shp'
+  csv_f = r'lat_lon.csv'
+  shp_filename = os.path.join(cwd,shp_f)
+  csv_filename = os.path.join(cwd,csv_f)
 
   #parse lat/lons from CSV
   conts = read_csv(csv_filename)
